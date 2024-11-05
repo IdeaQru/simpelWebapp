@@ -1,1 +1,197 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Dashboard Layout */
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+/* Content Area */
+.content-area {
+  margin-left: 260px; /* Margin default ketika sidebar penuh */
+  padding: 2rem;
+  width: calc(100% - 260px);
+  overflow-y: auto;
+  background-color: #f5f5f5; /* Warna latar belakang konten yang netral */
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+/* Animasi Lampu untuk Sidebar Header */
+@keyframes glowing-header {
+  0% {
+    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 20px #ffea00, 0 0 40px #ffea00;
+    color: #fff;
+  }
+  50% {
+    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00;
+    color: #ffea00;
+  }
+  100% {
+    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 20px #ffea00, 0 0 40px #ffea00;
+    color: #fff;
+  }
+}
+/* Animasi Lampu untuk Ikon di Sidebar dan Navbar */
+@keyframes glowing-icons {
+  0% {
+    filter: drop-shadow(0 0 5px #ffea00);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #00ff00);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #ffea00);
+  }
+}
+
+/* Tambahkan Animasi pada Semua Ikon di Sidebar dan Navbar */
+.sidebar .nav-link i,
+.sidebar-header i,
+.navbar-nav .nav-link i {
+  animation: glowing-icons 2s infinite alternate; /* Terapkan animasi hanya pada ikon */
+}
+/* Animasi Lampu untuk Navbar Brand */
+@keyframes glowing-text {
+  0% {
+    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 15px #00ff00;
+  }
+  50% {
+    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+  }
+  100% {
+    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 15px #00ff00;
+  }
+}
+
+/* Terapkan animasi pada "navbar-brand" */
+.navbar-brand {
+  animation: glowing-text 2s infinite alternate;
+}
+
+/* Gaya untuk Sidebar Header */
+.sidebar-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+  height: auto;
+  animation: glowing-header 2s infinite alternate; /* Tambahkan animasi */
+}
+.content-area.minimized {
+  margin-left: 80px; /* Margin lebih kecil saat sidebar diminimalkan */
+  width: calc(100% - 80px);
+}
+
+/* Gaya untuk Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: #0ba766; /* Warna hijau gelap untuk sidebar */
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 15px; /* Membuat rounded di sudut atas */
+  border-bottom-right-radius: 15px; /* Membuat rounded di sudut bawah */
+  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.sidebar.minimized {
+  width: 80px; /* Lebar yang lebih kecil saat minimized */
+  padding-top: 0.5rem;
+}
+
+
+
+/* Gaya untuk Navigasi di Sidebar */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out, border-left 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.sidebar.minimized .nav-link {
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+}
+
+.nav-link i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.sidebar.minimized .nav-link i {
+  margin-right: 0; /* Menghilangkan margin pada ikon */
+}
+
+/* Gaya untuk Navbar */
+.navbar {
+  background-color: #0ba766 !important; /* Warna hijau untuk navbar */
+  color: #fff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0.75rem 1rem; /* Sedikit lebih kecil agar terlihat rapi */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Gaya untuk Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0ba766;
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Style */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 70%;
+    left: 30;
+    z-index: 1100;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0; /* Menghilangkan rounded di layar kecil */
+  }
+
+  .sidebar-visible {
+    transform: translateX(0); /* Sidebar muncul di layar kecil */
+  }
+
+  .content-area {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
