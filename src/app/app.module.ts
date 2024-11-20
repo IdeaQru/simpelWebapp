@@ -9,17 +9,19 @@ import { FooterComponent } from './layout/component/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
-import { EvaluationComponent } from './rolepage/tester/evaluation/evaluation.component';
-import { ReportComponent } from './rolepage/tester/report/report.component';
-import { CertificationComponent } from './rolepage/contractor/certification/certification.component';
-import { PrequalificationComponent } from './rolepage/contractor/prequalification/prequalification.component';
-import { ProfileComponent } from './layout/profile/profile.component';
 import { FormsModule } from '@angular/forms'; // Tambahkan ini
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
+import { MapsComponent } from './pages/maps/maps.component';
+import { LoggerComponent } from './pages/logger/logger.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { AddDeviceDialogComponent } from './components/add-device-dialog/add-device-dialog.component'; // Import HttpClientModule
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,11 +29,11 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    EvaluationComponent,
-    ReportComponent,
-    CertificationComponent,
-    PrequalificationComponent,
-    ProfileComponent
+    MapsComponent,
+    LoggerComponent,
+    SettingsComponent,
+    AddDeviceDialogComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -43,8 +45,12 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatIconModule,
     FormsModule,
-    HttpClientModule
+    MatGridListModule,
+    MatDialogModule,
+    MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

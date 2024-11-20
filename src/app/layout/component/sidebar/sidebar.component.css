@@ -7,7 +7,7 @@
 
 /* Tombol Minimize */
 .minimize-btn {
-  background: #004d40;
+  background: #0000;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -27,7 +27,7 @@
 }
 
 .minimize-btn:hover {
-  background:  #299225;
+  background:  #4644ca;
 }
 
 .sidebar.minimized .minimize-btn {
@@ -75,9 +75,9 @@
 }
 
 .nav-link:hover {
-  background-color: #004d40; /* Warna lebih gelap untuk hover */
-  border-left: 4px solid #00ff00;
-  color: #ffea00;
+  background-color: #02498b; /* Warna lebih gelap untuk hover */
+  border-left: 4px solid #0004ff;
+  color: #ea00ff;
 }
 
 .nav-link i {

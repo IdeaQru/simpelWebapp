@@ -1,90 +1,95 @@
-
 /* Dashboard Layout */
 .dashboard-layout {
   display: flex;
   height: 100vh;
   overflow: hidden;
 }
+
 /* Content Area */
 .content-area {
   margin-left: 260px; /* Margin default ketika sidebar penuh */
   padding: 2rem;
   width: calc(100% - 260px);
   overflow-y: auto;
-  background-color: #f5f5f5; /* Warna latar belakang konten yang netral */
+  background: linear-gradient(180deg, #f9f9f9, #eaeaea, #dcdcdc); /* Gradasi putih modern */
   transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
-/* Animasi Lampu untuk Sidebar Header */
+
+/* Animasi Glowing untuk Sidebar Header */
 @keyframes glowing-header {
   0% {
-    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 20px #ffea00, 0 0 40px #ffea00;
-    color: #fff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #dcdcdc, 0 0 20px #f5f5f5, 0 0 40px #ffffff;
+    color: #ffffff;
   }
   50% {
-    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00;
-    color: #ffea00;
+    text-shadow: 0 0 20px #eaeaea, 0 0 30px #dcdcdc, 0 0 50px #f9f9f9, 0 0 60px #ffffff;
+    color: #dcdcdc;
   }
   100% {
-    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 20px #ffea00, 0 0 40px #ffea00;
-    color: #fff;
-  }
-}
-/* Animasi Lampu untuk Ikon di Sidebar dan Navbar */
-@keyframes glowing-icons {
-  0% {
-    filter: drop-shadow(0 0 5px #ffea00);
-  }
-  50% {
-    filter: drop-shadow(0 0 20px #00ff00);
-  }
-  100% {
-    filter: drop-shadow(0 0 5px #ffea00);
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #f9f9f9, 0 0 20px #ffffff, 0 0 40px #f9f9f9;
+    color: #ffffff;
   }
 }
 
-/* Tambahkan Animasi pada Semua Ikon di Sidebar dan Navbar */
+/* Animasi Glowing untuk Ikon */
+@keyframes glowing-icons {
+  0% {
+    filter: drop-shadow(0 0 5px #ffffff);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #dcdcdc);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #f9f9f9);
+  }
+}
+
+/* Terapkan Animasi pada Ikon */
 .sidebar .nav-link i,
 .sidebar-header i,
 .navbar-nav .nav-link i {
-  animation: glowing-icons 2s infinite alternate; /* Terapkan animasi hanya pada ikon */
+  animation: glowing-icons 2s infinite alternate;
 }
-/* Animasi Lampu untuk Navbar Brand */
+
+/* Animasi untuk Navbar Brand */
 @keyframes glowing-text {
   0% {
-    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 15px #00ff00;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #f9f9f9, 0 0 15px #eaeaea;
   }
   50% {
-    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+    text-shadow: 0 0 20px #dcdcdc, 0 0 30px #f9f9f9, 0 0 40px #ffffff;
   }
   100% {
-    text-shadow: 0 0 5px #ffea00, 0 0 10px #ffea00, 0 0 15px #00ff00;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #f9f9f9, 0 0 15px #dcdcdc;
   }
 }
 
-/* Terapkan animasi pada "navbar-brand" */
+/* Terapkan Animasi pada "navbar-brand" */
 .navbar-brand {
   animation: glowing-text 2s infinite alternate;
 }
 
-/* Gaya untuk Sidebar Header */
+/* Gaya Sidebar Header */
 .sidebar-header {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
   transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
   height: auto;
-  animation: glowing-header 2s infinite alternate; /* Tambahkan animasi */
+  animation: glowing-header 2s infinite alternate;
 }
+
+/* Content Area saat Sidebar Minimized */
 .content-area.minimized {
-  margin-left: 80px; /* Margin lebih kecil saat sidebar diminimalkan */
+  margin-left: 80px;
   width: calc(100% - 80px);
 }
 
-/* Gaya untuk Sidebar */
+/* Gaya Sidebar */
 .sidebar {
   width: 260px;
-  background-color: #0ba766; /* Warna hijau gelap untuk sidebar */
-  color: #fff;
+  background: linear-gradient(180deg, #111111, #222222, #333333); /* Gradasi hitam modern */
+  color: #ffffff;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -94,24 +99,22 @@
   top: 0;
   z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  border-top-right-radius: 15px; /* Membuat rounded di sudut atas */
-  border-bottom-right-radius: 15px; /* Membuat rounded di sudut bawah */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   transition: width 0.3s ease-in-out, padding 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .sidebar.minimized {
-  width: 80px; /* Lebar yang lebih kecil saat minimized */
+  width: 80px;
   padding-top: 0.5rem;
 }
 
-
-
-/* Gaya untuk Navigasi di Sidebar */
+/* Gaya Navigasi di Sidebar */
 .nav-link {
   display: flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
   transition: background-color 0.3s ease-in-out, border-left 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -128,15 +131,15 @@
 }
 
 .sidebar.minimized .nav-link i {
-  margin-right: 0; /* Menghilangkan margin pada ikon */
+  margin-right: 0;
 }
 
-/* Gaya untuk Navbar */
+/* Gaya Navbar */
 .navbar {
-  background-color: #0ba766 !important; /* Warna hijau untuk navbar */
-  color: #fff !important;
+  background: linear-gradient(180deg, #111111, #222222, #333333); /* Gradasi hitam modern */
+  color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 0.75rem 1rem; /* Sedikit lebih kecil agar terlihat rapi */
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -147,16 +150,16 @@
 }
 
 .navbar-nav .nav-link {
-  color: #fff !important;
+  color: #ffffff;
   transition: color 0.3s ease-in-out;
 }
 
-/* Gaya untuk Footer */
+/* Gaya Footer */
 .footer {
   text-align: center;
   padding: 1rem;
-  background-color: #0ba766;
-  color: #fff;
+  background: linear-gradient(180deg, #111111, #222222, #333333); /* Gradasi hitam modern */
+  color: #ffffff;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
@@ -173,11 +176,11 @@
     left: 30;
     z-index: 1100;
     transition: transform 0.3s ease-in-out;
-    border-radius: 0; /* Menghilangkan rounded di layar kecil */
+    border-radius: 0;
   }
 
   .sidebar-visible {
-    transform: translateX(0); /* Sidebar muncul di layar kecil */
+    transform: translateX(0);
   }
 
   .content-area {
@@ -191,7 +194,14 @@
   }
 }
 
+html, body {
+  height: 100%;
+}
 
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Add Device</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Device Name</mat-label>
+    <input matInput [(ngModel)]="deviceName" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="addDevice()" [disabled]="!deviceName">Add</button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+<div class="settings-container">
+    <h1>Device Management</h1>
+    <button mat-raised-button color="primary" (click)="openAddDeviceDialog()">Add Device</button>
+  
+    <div class="device-list" *ngIf="devices.length > 0">
+      <h2>Device List</h2>
+      <mat-card *ngFor="let device of devices" class="device-card">
+        <mat-card-title>{{ device.name }}</mat-card-title>
+        <mat-card-content>
+          <p><b>API Key:</b> {{ device.apiKey }}</p>
+          <button mat-button (click)="copyToClipboard(device.apiKey)">Copy API Key</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

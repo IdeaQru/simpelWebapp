@@ -4,8 +4,8 @@
   left: 0;
   width: 30px; /* Lebar ekor */
   height:10px; /* Tinggi ekor */
-  background: linear-gradient(to right, #00ff00, rgba(0, 255, 0, 0)); /* Gradasi hijau ke transparan */
-  background-color: #00ff00; /* Warna hijau terang */
+  background: linear-gradient(to right, #1b7af7, rgba(92, 116, 253, 0)); /* Gradasi hijau ke transparan */
+  background-color: #0066ff; /* Warna hijau terang */
   border-radius: 90%; /* Membuat ekor berbentuk lingkaran */
   pointer-events: none; /* Supaya tidak mengganggu interaksi dengan elemen lain */
   transition: transform 0.3s ease-out, opacity 0.6s ease-out;
